@@ -9,7 +9,7 @@
 //import Foundation
 
 class ForecastService: ForecastServiceProtocol {  
-    var forecast: [FullForecast] = []
+    var forecast: [ViewForecastFull] = []
     let storageService: StorageServiceProtocol = RealmService()
     
     init() {
@@ -18,7 +18,7 @@ class ForecastService: ForecastServiceProtocol {
     
     private func loadFromStorage() {
         forecast = storageService.loadForecast().map{
-            FullForecast(
+            ViewForecastFull(
                 day: ViewForecast(date: "\($0.date)",
                     dayTemp: $0.day_temp,
                     nightTemp: $0.night_temp,
@@ -28,7 +28,7 @@ class ForecastService: ForecastServiceProtocol {
                     windDir: $0.wind_dir,
                     windSpeed: $0.wind_speed),
                 hourly: $0.hours.map{
-                    HourlyForecast(hour: $0.hour,
+                    ViewForecastHour(hour: $0.hour,
                                    temp: $0.temp,
                                    feelsLike: $0.temp,
                                    icon: $0.icon,
@@ -40,8 +40,8 @@ class ForecastService: ForecastServiceProtocol {
     }
     
     func saveToStorage(forecast: NetworkForecast) {
-        let data: [ForecastList] = forecast.forecasts.map {
-            let fl = ForecastList()
+        let data: [StorageForecastList] = forecast.forecasts.map {
+            let fl = StorageForecastList()
             fl.date = $0.date_ts
             fl.day_temp = $0.parts.day_short.temp
             fl.night_temp = $0.parts.night_short.temp
@@ -51,7 +51,7 @@ class ForecastService: ForecastServiceProtocol {
             fl.wind_dir = $0.parts.day_short.wind_dir
                         
             for hour in $0.hours {
-                let hourForecast = ForecastHourList()
+                let hourForecast = StorageForecastHourList()
                 hourForecast.hour = Int(hour.hour)!
                 hourForecast.temp = hour.temp
                 hourForecast.icon = hour.icon
@@ -71,7 +71,7 @@ class ForecastService: ForecastServiceProtocol {
         }
     }
     
-    func getHourly(day: Int) -> [HourlyForecast] {
+    func getHourly(day: Int) -> [ViewForecastHour] {
         return forecast[day].hourly
     }
 }

@@ -19,7 +19,7 @@ struct ViewForecast {
     let windSpeed: Double
 }
 
-struct HourlyForecast {
+struct ViewForecastHour {
     let hour: Int
     let temp: Int
     let feelsLike: Int
@@ -29,9 +29,9 @@ struct HourlyForecast {
     let windSpeed: Double
 }
 
-struct FullForecast {
+struct ViewForecastFull {
     let day: ViewForecast
-    let hourly: [HourlyForecast]
+    let hourly: [ViewForecastHour]
 }
 
 struct UIForecast {

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ForecastList: Object {
+class StorageForecastList: Object {
     @objc dynamic var date = 0
     @objc dynamic var day_temp = 0
     @objc dynamic var night_temp = 0
@@ -17,10 +17,10 @@ class ForecastList: Object {
     @objc dynamic var condition = ""
     @objc dynamic var wind_speed = 0.0
     @objc dynamic var wind_dir = ""
-    let hours = List<ForecastHourList>()
+    let hours = List<StorageForecastHourList>()
 }
 
-class ForecastHourList: Object {
+class StorageForecastHourList: Object {
     @objc dynamic var hour = 0
     @objc dynamic var temp = 0
     @objc dynamic var icon = ""

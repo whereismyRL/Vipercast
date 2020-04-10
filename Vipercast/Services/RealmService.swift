@@ -10,21 +10,21 @@
 import RealmSwift
 
 protocol StorageServiceProtocol: class {
-    func saveForecast(data: [ForecastList])
-    func loadForecast() -> [ForecastList]
+    func saveForecast(data: [StorageForecastList])
+    func loadForecast() -> [StorageForecastList]
 }
 
 class RealmService: StorageServiceProtocol {
     let realm = try! Realm()
     
-    @objc func saveForecast(data: [ForecastList]) {       
+    @objc func saveForecast(data: [StorageForecastList]) {       
         try! realm.write{
             realm.deleteAll()
             realm.add(data)
         }
     }
     
-    @objc func loadForecast() -> [ForecastList] {
-        return realm.objects(ForecastList.self).sorted { $0.date < $1.date }
+    @objc func loadForecast() -> [StorageForecastList] {
+        return realm.objects(StorageForecastList.self).sorted { $0.date < $1.date }
     }
 }

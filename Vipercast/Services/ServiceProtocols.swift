@@ -9,10 +9,10 @@
 import Foundation
 
 protocol ForecastServiceProtocol: class {
-    var forecast: [FullForecast] { set get }
+    var forecast: [ViewForecastFull] { set get }
     func saveToStorage(forecast: NetworkForecast)
     func getDaily() -> [ViewForecast]
-    func getHourly(day: Int) -> [HourlyForecast]
+    func getHourly(day: Int) -> [ViewForecastHour]
 }
 
 protocol NetworkServiceProtocol: class {

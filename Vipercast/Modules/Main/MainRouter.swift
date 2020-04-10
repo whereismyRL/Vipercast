@@ -11,13 +11,13 @@ import UIKit
 
 class MainRouter: MainRouterProtocol {
     weak var viewController: MainViewController!
-    var data: [HourlyForecast] = []
+    var data: [ViewForecastHour] = []
     
     init(viewController: MainViewController) {
         self.viewController = viewController
     }
     
-    func showHourlyScene(segueName: String, data: [HourlyForecast]) {
+    func showHourlyScene(segueName: String, data: [ViewForecastHour]) {
         self.data = data
         viewController.performSegue(withIdentifier: segueName, sender: nil)
     }

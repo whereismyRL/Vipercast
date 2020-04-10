@@ -11,7 +11,7 @@ import UIKit
 class HourlyViewController: UIViewController, UITableViewDataSource, HourlyViewProtocol {
     var presenter: HourlyPresenterProtocol!
     let configurator: HourlyConfiguratorProtocol = HourlyConfigurator()
-    var tableData: [HourlyForecast] = []
+    var tableData: [ViewForecastHour] = []
     
     
     @IBAction func closeButtonClicked(_ sender: Any) {

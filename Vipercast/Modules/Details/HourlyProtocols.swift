@@ -9,7 +9,7 @@
 import Foundation
 
 protocol HourlyViewProtocol: class {
-    var tableData: [HourlyForecast] { set get }
+    var tableData: [ViewForecastHour] { set get }
 }
 
 protocol HourlyPresenterProtocol: class {

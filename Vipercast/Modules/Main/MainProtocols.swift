@@ -30,11 +30,11 @@ protocol MainInteractorProtocol {
     var forecast: [ViewForecast] { get }
     func checkForecastUpdate()
     func downloadIcon(icon: String)
-    func getHourlyForecast(day: Int) -> [HourlyForecast]
+    func getHourlyForecast(day: Int) -> [ViewForecastHour]
 }
 
 protocol MainRouterProtocol {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    func showHourlyScene(segueName: String, data: [HourlyForecast])
+    func showHourlyScene(segueName: String, data: [ViewForecastHour])
 }
 

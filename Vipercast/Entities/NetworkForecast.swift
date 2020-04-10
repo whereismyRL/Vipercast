@@ -8,14 +8,7 @@
 
 import Foundation
 
-
-struct DayForecast: Decodable {
-    let date_ts: Int
-    let parts: PartsForecast
-    let hours: [HourForecast]
-}
-
-struct DaypartForecast: Decodable {
+struct NetworkForecastDaypart: Decodable {
     let temp: Int
     let feels_like: Int
     let icon: String
@@ -25,7 +18,7 @@ struct DaypartForecast: Decodable {
     let wind_dir: String
 }
 
-struct HourForecast: Decodable {
+struct NetworkForecastHour: Decodable {
     let hour: String
     let temp: Int
     let feels_like: Int
@@ -34,12 +27,18 @@ struct HourForecast: Decodable {
     let humidity: Int
 }
 
-struct PartsForecast: Decodable {
-    let day_short: DaypartForecast
-    let night_short: DaypartForecast
+struct NetworkForecastParts: Decodable {
+    let day_short: NetworkForecastDaypart
+    let night_short: NetworkForecastDaypart
+}
+
+struct NetworkForecastDay: Decodable {
+    let date_ts: Int
+    let parts: NetworkForecastParts
+    let hours: [NetworkForecastHour]
 }
 
 struct NetworkForecast: Decodable {
     let now: Int
-    let forecasts: [DayForecast]
+    let forecasts: [NetworkForecastDay]
 }

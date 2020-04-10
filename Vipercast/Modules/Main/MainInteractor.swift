@@ -48,7 +48,7 @@ class MainInteractor: MainInteractorProtocol {
         })
     }
     
-    func getHourlyForecast(day: Int) -> [HourlyForecast] {
+    func getHourlyForecast(day: Int) -> [ViewForecastHour] {
         return forecastService.getHourly(day: day)
     }
 
