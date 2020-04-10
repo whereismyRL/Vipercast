@@ -61,11 +61,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.conditionLabel.text = data.condition
         cell.windLabel.text = data.wind
                 
-        if let iconData = icons[data.icon] {
-            let svg = UIView(SVGData: iconData) { (svgLayer) in
-                svgLayer.resizeToFit(cell.svgView.bounds)
+        if cell.svgView.subviews.isEmpty {
+            if let iconData = icons[data.icon] {
+                let svg = UIView(SVGData: iconData) { (svgLayer) in
+                    svgLayer.resizeToFit(cell.svgView.bounds)
+                }
+                cell.svgView.addSubview(svg)
             }
-            cell.svgView.addSubview(svg)
         }
         
         return cell

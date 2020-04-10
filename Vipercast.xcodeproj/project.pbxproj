@@ -34,7 +34,6 @@
 		705E9737240915D1008F7170 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E9736240915D1008F7170 /* ForecastService.swift */; };
 		705E9739240916E0008F7170 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E9738240916E0008F7170 /* RealmService.swift */; };
 		705E973B240921BD008F7170 /* NetworkForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E973A240921BD008F7170 /* NetworkForecast.swift */; };
-		705E973D240938C8008F7170 /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E973C240938C8008F7170 /* URLSessionService.swift */; };
 		80A77B086B203FC473A3ED95 /* Pods_Vipercast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E54848D364DC8344618BF7 /* Pods_Vipercast.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,6 @@
 		705E9736240915D1008F7170 /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 		705E9738240916E0008F7170 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		705E973A240921BD008F7170 /* NetworkForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkForecast.swift; sourceTree = "<group>"; };
-		705E973C240938C8008F7170 /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
 		C2130FF477AD82B6F17DE984 /* Pods-Vipercast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vipercast.release.xcconfig"; path = "Target Support Files/Pods-Vipercast/Pods-Vipercast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,7 +143,6 @@
 				705E9736240915D1008F7170 /* ForecastService.swift */,
 				705E9738240916E0008F7170 /* RealmService.swift */,
 				705E973424091552008F7170 /* AlamofireService.swift */,
-				705E973C240938C8008F7170 /* URLSessionService.swift */,
 				700A5BB5240D1DF400BC5B8B /* Helper.swift */,
 			);
 			path = Services;
@@ -333,7 +330,6 @@
 				705E972F2408F2AE008F7170 /* MainRouter.swift in Sources */,
 				705E97332408F309008F7170 /* MainInteractor.swift in Sources */,
 				700BDC54240CB79E00D8A637 /* HourlyConfigurator.swift in Sources */,
-				705E973D240938C8008F7170 /* URLSessionService.swift in Sources */,
 				701DF8FD240BFADE00BA9611 /* DaysTableViewCell.swift in Sources */,
 				700BDC52240CB78D00D8A637 /* HourlyRouter.swift in Sources */,
 				705E9737240915D1008F7170 /* ForecastService.swift in Sources */,

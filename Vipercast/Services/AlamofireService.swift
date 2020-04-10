@@ -9,8 +9,10 @@
 //import Foundation
 import Alamofire
 
-class AlamofireService: NetworkServiceProtocol {
-    // MARK: - ServerServiceProtocol methods
+class AlamofireService: NetworkServiceProtocol {    
+    private let URLForecast = "https://api.weather.yandex.ru/v1/forecast?lat=57.990882&lon=56.20543&limit=7&extra=true"
+    
+    private let URLIcon = "https://yastatic.net/weather/i/icons/blueye/color/svg/<icon>.svg"
     
     func getForecast(completion: @escaping (NetworkForecast?, Error?) -> ()) {
         if let url = URL(string: URLForecast) {
@@ -23,11 +25,9 @@ class AlamofireService: NetworkServiceProtocol {
             getIcon(URL: url, completion: completion)
         }
     }
-    
-    // MARK: - Private methods
         
     private func getJSON(URL: URL, completion: @escaping (NetworkForecast?, Error?) -> ()) {
-        let headers: HTTPHeaders = ["X-Yandex-API-Key": "b868e645-e501-4270-a2f9-1f9f5880d4e0"]
+        let headers: HTTPHeaders = ["X-Yandex-API-Key": "0b93bcce-e5e1-4475-8dde-869cd57f9e01"]
         AF.request(URLForecast, headers: headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: NetworkForecast.self) { (response) in
@@ -43,9 +43,4 @@ class AlamofireService: NetworkServiceProtocol {
         }
             
     }
-    
-    private let URLForecast = "https://api.weather.yandex.ru/v1/forecast?lat=57.990882&lon=56.20543&limit=7&extra=true"
-    
-    private let URLIcon = "https://yastatic.net/weather/i/icons/blueye/color/svg/<icon>.svg"
-
 }

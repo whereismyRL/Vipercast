@@ -41,10 +41,9 @@ class MainPresenter: MainPresenterProtocol {
             dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dMMM", options: 0, locale: .current)
             let dateString = dateFormatter.string(from: date)
             
-            var windString = Helper.winds[$0.windDir] ?? "?"
-            // если не штиль
-            if $0.windDir != "c" {
-                windString.append(contentsOf: ", \(Int($0.windSpeed)) м/с ")
+            var windString = Winds.getName(wind: $0.windDir)
+            if Winds.isWind(wind: $0.windDir) {
+                windString.append(contentsOf: ", \(lround($0.windSpeed)) м/с")
             }
             
             return UIForecast(day: dayString,
@@ -52,7 +51,7 @@ class MainPresenter: MainPresenterProtocol {
                               date: dateString,
                               dayTemp: "\($0.dayTemp)°",
                 nightTemp: "ночью \($0.nightTemp)°",
-                condition: Helper.conditions[$0.condition] ?? "?",
+                condition: Conditions.dict[$0.condition] ?? "?",
                 wind: windString,
                 icon: $0.icon
             )

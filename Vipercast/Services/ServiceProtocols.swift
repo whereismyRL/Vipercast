@@ -16,7 +16,6 @@ protocol ForecastServiceProtocol: class {
 }
 
 protocol NetworkServiceProtocol: class {
-
     func getForecast(completion: @escaping (NetworkForecast?, Error?) -> ())
     
     func getIcon(icon: String, completion: @escaping (Data?, Error?) -> ())

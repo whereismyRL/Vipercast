@@ -41,7 +41,7 @@ class HourlyViewController: UIViewController, UITableViewDataSource, HourlyViewP
         let hour = tableData[indexPath.row]
         cell.hourLabel.text = "\(hour.hour):00"
         cell.tempLabel.text = "\(hour.temp)°"
-        cell.conditionLabel.text = Helper.conditions[hour.condition] ?? "?"
+        cell.conditionLabel.text = Conditions.dict[hour.condition] ?? "?"
         
         return cell
     }

@@ -6,8 +6,8 @@
 //  Copyright © 2020 rl. All rights reserved.
 //
 
-class Helper {
-    static let conditions: [String: String] = [
+class Conditions {
+    static let dict: [String: String] = [
         "clear": "ясно",
         "partly-cloudy": "малооблачно",
         "cloudy": "облачно с прояснениями",
@@ -27,8 +27,10 @@ class Helper {
         "overcast-and-light-snow": "небольшой снег",
         "cloudy-and-snow": "снег"
     ]
-    
-    static let winds: [String: String] = [
+}
+
+class Winds {
+    private static let winds: [String: String] = [
         "nw": "СЗ",
         "n": "С",
         "ne": "СВ",
@@ -36,7 +38,16 @@ class Helper {
         "se": "ЮВ",
         "s": "Ю",
         "sw": "ЮЗ",
-        "w": "З",
-        "с": "штиль"
+        "w": "З"
     ]
+    
+    private static let calm: [String: String] = ["с": "штиль"]
+    
+    static func getName(wind: String) -> String {
+        return winds[wind] ?? calm[wind] ?? "N/A"
+    }
+    
+    static func isWind(wind: String) -> Bool {
+        return winds[wind] != nil
+    }
 }
